@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>网络教育学院平台运行状态实时跟踪</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="app.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <!--提醒 -->
+        <div id="reminder" class="span6 block"></div>
+        <!--系统状态 -->
+        <div id="systemstatus" class="span6 block"></div>
+      </div>
+      <div class="row-fluid">
+        <!--任务安排 -->
+        <div id="todo" class="span6 block"></div>
+        <!--值日表 -->
+        <div id="duty" class="span6 block">预留</div>
+      </div>      
+    </div>
+
+
+    <script type="text/tpl" id="reminder-tpl">
+      <h2>提醒</h2>
+      <p class="startedtime">
+        已监控：<%= reminders.startedtime %> 分钟。
+      </p>
+      <div class="inner hide">
+      <ul>
+      <% _.each(reminders, function(reminder) { %>
+       <li class="reminder"><%= reminder.time %> : <%= reminder.action %></li> 
+      <% }); %>
+      </ul>
+      </div>
+    </script>
+
+    <script type="text/tpl" id="systemstatus-tpl">
+
+      <h2>平台状态</h2>
+      <p class="startedtime">
+        已监控：<%= systemstatus.startedtime %> 分钟。
+      </p>
+      <div class="inner hide">
+      <ul>
+      <% _.each(systemstatus, function(ss) { %>
+       <li class="reminder"><%= ss.system %> : <%= ss.status %></li> 
+      <% }); %>
+      </ul>
+      </div>
+    </script>
+
+    <script type="text/tpl" id="todo-tpl">
+
+      <h2>任务列表</h2>
+      <p class="startedtime">
+        已监控：<%= todo.startedtime %> 分钟。
+      </p>
+      <div class="inner hide">
+      <ul>
+      <% _.each(todo, function(t) { %>
+       <li class="reminder"><%= t.person %> : <%= t.thing %> 时间：<%= t.startdate %> ~ <%= t.enddate %></li> 
+      <% }); %>
+      </ul>
+      </div>
+
+    </script>
+
+    <script type="text/tpl" id="duty-tpl">
+
+    </script>
+
+    <!--libs -->
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <!--mods-->
+    <script src="mod/reminder.js"></script>
+    <script src="mod/systemstatus.js"></script>
+    <script src="mod/todo.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

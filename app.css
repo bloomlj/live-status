@@ -1,0 +1,28 @@
+.block{
+  background: #f0f0f0;
+  height: 450px;
+}
+
+.row-fluid{
+  margin-bottom:20px;
+}
+
+
+.reminder{
+  list-style: none;
+  margin-bottom: 0.5em;
+  line-height: 1.5em;
+  padding:10px;
+  color:blue;
+  border-bottom: 1px solid #ccc;
+}
+
+.startedtime{
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+ul{
+  margin-left: 0;
+}
